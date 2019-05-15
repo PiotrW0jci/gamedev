@@ -3,25 +3,24 @@ package com.company;
 import javax.swing.*;
 import java.awt.*;
 
-import com.company.Game.ChoiceHandler;
-import com.company.Game.TitleScreenHandler;
+
 
 public class UI {
     JFrame window;
-    Container con;
-    JPanel titleNamePanel, startButtonPanel, mainTextPanel,choiceBottonPanel,playerPanel;
+    JPanel titleNamePanel, startButtonPanel, mainTextPanel,choiceBottonPanel,playerPanel,continiueButtonPanel;
     JLabel titleNameLabel, etcsPoints,etcsPointsNumber;
     Font titleFont = new Font("Times New Roman", Font.PLAIN, 75);
     Font startButtonFont = new Font("Times New Roman", Font.PLAIN, 30);
-    JButton startButton, choice1, choice2, choice3, choice4;
+    JButton startButton,continiue, choice1, choice2, choice3, choice4;
     JTextArea mainTextArea;
 
-    public void createUI(Game.ChoiceHandler chHandler,Game.TitleScreenHandler tsHandler){
+    public void createUI(Game.ChoiceHandler chHandler){
         window = new JFrame();
         window.setSize(800, 600);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.getContentPane().setBackground(Color.BLACK);
         window.setLayout(null);
+
 
 
         titleNamePanel = new JPanel();
@@ -35,24 +34,27 @@ public class UI {
         startButtonPanel = new JPanel();
         startButtonPanel.setBounds(300, 400, 200, 100);
         startButtonPanel.setBackground(Color.BLACK);
-
         startButton = new JButton("START");
         startButton.setBackground(Color.BLACK);
         startButton.setForeground(Color.WHITE);
         startButton.setFont(startButtonFont);
-        startButton.addActionListener(tsHandler);
+        startButton.addActionListener(chHandler);
+        startButton.setActionCommand("start");
         startButton.setFocusPainted(false);
         startButtonPanel.add(startButton);
 
-        window.setVisible(true);
+        continiueButtonPanel = new JPanel();
 
-        titleNamePanel.setVisible(false);
-        startButtonPanel.setVisible(false);
+        window.add(titleNamePanel);
+        window.add(startButtonPanel);
+
+
 
         mainTextPanel = new JPanel();
         mainTextPanel.setBounds(100, 100, 600, 250);
         mainTextPanel.setBackground(Color.BLACK);
-        mainTextPanel.add(mainTextPanel);
+        window.add(mainTextPanel);
+
 
         mainTextArea = new JTextArea(" WITAJ STUDENCIE!");
         mainTextArea.setBounds(100, 100, 600, 250);
@@ -61,6 +63,8 @@ public class UI {
         mainTextArea.setFont(startButtonFont);
         mainTextArea.setLineWrap(true);
         mainTextPanel.add(mainTextArea);
+
+
 
         choiceBottonPanel= new JPanel();
         choiceBottonPanel.setBounds(250,350,300,150);
@@ -124,6 +128,6 @@ public class UI {
         playerPanel.add(etcsPointsNumber);
 
 
-
+        window.setVisible(true);
     }
 }
