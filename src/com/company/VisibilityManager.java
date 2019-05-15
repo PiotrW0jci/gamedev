@@ -16,4 +16,14 @@ public class VisibilityManager {
         ui.choiceBottonPanel.setVisible(false);
         ui.playerPanel.setVisible(false);
     }
+
+    public void titleToUmcs(){
+        //hide title screen
+        ui.titleNamePanel.setVisible(false);
+        ui.startButtonPanel.setVisible(false);
+        //show game screen
+        ui.mainTextPanel.setVisible(true);
+        ui.choiceBottonPanel.setVisible(true);
+        ui.playerPanel.setVisible(true);
+    }
 }
