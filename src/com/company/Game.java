@@ -29,13 +29,13 @@ public class Game {
 
 
 
-
     public class ChoiceHandler implements  ActionListener{
         public void actionPerformed(ActionEvent event){
             String yourChoice= event.getActionCommand();
 
             switch (yourChoice){
                         case "start": vm.titleToUmcs (); story.umcs();break;
+                        case "continiue":  story.loadData(); vm.titleToUmcs ();story.selectPosition(story.saveNextPosition); break;
                         case "c1" :story.selectPosition(nextPosition1); break;
                         case "c2": story.selectPosition(nextPosition2);break;
                         case "c3": story.selectPosition(nextPosition3);break;
