@@ -11,7 +11,7 @@ public class UI {
     JLabel titleNameLabel, etcsPoints,etcsPointsNumber;
     Font titleFont = new Font("Times New Roman", Font.PLAIN, 75);
     Font startButtonFont = new Font("Times New Roman", Font.PLAIN, 30);
-    JButton startButton,continiue, choice1, choice2, choice3, choice4;
+    JButton startButton,continiueButton, choice1, choice2, choice3, choice4;
     JTextArea mainTextArea;
 
     public void createUI(Game.ChoiceHandler chHandler){
@@ -42,8 +42,18 @@ public class UI {
         startButton.setActionCommand("start");
         startButton.setFocusPainted(false);
         startButtonPanel.add(startButton);
+        startButton.setBorder(null);
 
-        continiueButtonPanel = new JPanel();
+        continiueButton = new JButton("CONTINIUE");
+        continiueButton.setBackground(Color.BLACK);
+        continiueButton.setForeground(Color.WHITE);
+        continiueButton.setFont(startButtonFont);
+        continiueButton.setFocusPainted(false);
+        continiueButton.setBorder(null);
+        continiueButton.addActionListener(chHandler);
+        continiueButton.setActionCommand("continiue");
+        startButtonPanel.add(continiueButton);
+
 
         window.add(titleNamePanel);
         window.add(startButtonPanel);
