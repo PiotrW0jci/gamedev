@@ -1,7 +1,9 @@
 package com.company;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 
 public class Story {
     String saveNextPosition;
@@ -170,11 +172,39 @@ public class Story {
         ui.choice1.setText("2+");
         ui.choice2.setText("3-");
         ui.choice3.setText("");
-        ui.choice4.setText("");
+        ui.choice4.setText("Zapisz Progres");
 
         game.nextPosition1="north";
         game.nextPosition2="south";
         game.nextPosition3="west";
-        game.nextPosition4="east";
+        game.nextPosition4="save";
+
     }
+    public void save() {
+        String position ="save";
+
+        ui.mainTextArea.setText("Gra została zapisana");
+        ui.choice1.setText("Powróć");
+        ui.choice2.setText("");
+        ui.choice3.setText("");
+        ui.choice4.setText("");
+
+        game.nextPosition1="firstLesson";
+        game.nextPosition2="";
+        game.nextPosition3="";
+        game.nextPosition4="";
+
+        try{
+            BufferedWriter bw = new BufferedWriter(new FileWriter("save.txt"));
+            bw.write(""+player.ects);
+            bw.newLine();
+            bw.write(position);
+            bw.close();
+        }
+        catch(Exception e){
+
+        }
+
+    }
+
 }
