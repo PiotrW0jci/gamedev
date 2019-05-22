@@ -2,4 +2,4 @@
 
 University project 
 
-Simple text game with Swing Gui
+Simple game with Swing Gui
